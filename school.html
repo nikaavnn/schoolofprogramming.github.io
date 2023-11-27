@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;700&family=Quicksand:wght@700&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&family=Roboto+Slab:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Зимова школа програмування</title>
+    <link rel="icon" href="img/VOFC_NUFT_sv_512.png" type="image/x-icon" />
+    <link rel="stylesheet" href="school.css" />
+  </head>
+
+  <body>
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="school.html">Головна</a>
+      <a href="#courses">Про курси</a>
+      <a href="#registration">Реєстрація</a>
+      <a href="#news">Новини</a>
+      <a href="contacts.html">Контакти</a>
+    </div>
+
+    <button class="openbtn" onclick="openNav()">☰</button>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+      }
+    </script>
+
+    <script>
+      // Функція для здійснення плавного прокручування до відповідного елемента по ID
+      function scrollToElement(elementId) {
+        var element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+
+      // Додаємо обробник подій до кожного посилання у боковій панелі
+      var links = document.querySelectorAll(".sidepanel a");
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          var href = event.target.getAttribute("href");
+          if (href.startsWith("#")) {
+            var targetId = href.substring(1); // Видаляємо символ #
+            scrollToElement(targetId);
+            closeNav(); // Закрити бокову панель після кліку на посилання
+            event.preventDefault(); // Забороняємо стандартну поведінку посилання
+          }
+        });
+      });
+    </script>
+    <!------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img
+          class="image"
+          src="img/pexels-photo-4974907.jpeg"
+          style="width: 100%"
+        />
+        <div class="text">
+          <span class="main-text">Зимова школа програмування</span><br />
+          <h3 class="slideshow-text">Основи web-дизайну</h3>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <img
+          class="image"
+          src="img/pexels-photo-4974920.jpeg"
+          style="width: 100%"
+        />
+        <div class="text">
+          <span class="main-text">Зимова школа програмування</span><br />
+          <h3 class="slideshow-text">Олімпійський резерв</h3>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <img
+          class="image"
+          src="img/pexels-photo-4974915.jpg"
+          style="width: 100%"
+        />
+        <div class="text">
+          <span class="main-text">Зимова школа програмування</span><br />
+          <h3 class="slideshow-text">Кодуємо Android</h3>
+        </div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br />
+
+    <div style="text-align: center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+    <!------------------------------------------------------------------------------------------------------------------------------------------>
+
+    <h2 class="headline-two">Зимова школа програмування</h2>
+    <p class="paragraph">
+      <b>
+        Волинський фаховий коледж Національного університету харчових технологій
+        запрошує підлітків від 14-18 років взяти участь в Зимовій школі
+        програмування.</b
+      >
+    </p>
+    <p class="paragraph">
+      Мета школи - надати школярам, учням та студентам можливіть проявити свою
+      майстерність у мистецтві розробки алгоритмів та складанні програм мовами
+      високого рівня, підвищити рівнь знань з предметів, які передбачають
+      програмування та алгоритмізацію.
+    </p>
+    <p class="paragraph">
+      Початок занять - 2 січня 2019 року. Тривалість занять - 3 тижні: 9 занять
+      по 2 години в день. Місце проведення Зимової школи - мультимедыйні
+      навчальні класи та комп'ютерні лабораторії Волинського коледжу НУХТ.
+      Заняття проводяться в трьох секціях.
+    </p>
+    <p class="attension">
+      УВАГА! Реєстрація на курси почнеться 21 грудня і триватиме до 31 грудня
+      2024 р.
+    </p>
+
+    <h2 id="courses" class="headline-two">Програма курсів</h2>
+
+    <div class="accordion-container">
+      <button class="accordion">Секція "Кодування андроїд"</button>
+      <div class="panel">
+        <p>
+          У секцію "Кодування андроїд" запрошують учнів 9-11 класів, що немають
+          попереднього досвіду програмування, але мають власний смартфон на
+          платформі Андроїд і бажають навчитися створювати мобільні додатки.
+          Основне завдання секції ознайомити учасників школи з елементами
+          інтерфейсу середовища MIT App Inventor; сформувати поняття проекту та
+          його складових, навички роботи з елементами інтерфейсу; алгоритм
+          створення, тестування, збереження, публікації та встановлення додатку
+          проекту на смартфон. Наприкінці навчання планується проведення
+          WEB-квесту, результати якого будуть враховуватися при формуванні груп
+          на наступні роки навчання.
+        </p>
+      </div>
+
+      <button class="accordion">Секція "Олімпійський резерв"</button>
+      <div class="panel">
+        <p>
+          Секція "Олімпійський резер" запрошує учнів та студентів, що мають
+          базові знання мови програмування С++ (структуру програми та базові
+          керуючі конструкції). Основне завдання секції підготовка до участі у
+          міжнародній олімпіаді з програмування «The ACM-ICPC International
+          Collegiate Programming Contest», що проводяться під егідою Асоціації
+          обчислювальної техніки (ACM) за участі університета Бейлора
+          (https://icpc.baylor.edu). Заняття проводять студенти фіналісти
+          Всекураїнської олімпіади з програмування та випускники - учасники
+          Міжнародної олімпіади. Наприкінці навчання проводиться олімпіада
+          зимової школи. Фіналісти отримують сертифікати, що дозволяють отримати
+          додаткові бали на екзамен.
+        </p>
+      </div>
+
+      <button class="accordion">Секція "Основи Web-дизайну"</button>
+      <div class="panel">
+        <p>
+          Секція "Основи Web-дизайну" запрошує учнів та студентів, що бажають
+          створити власний сайт. Основне завдання секції надати базові знання із
+          основ web-розробки, зокрема курс покриватиме такі теми як перші кроки
+          по запуску сайту, DNS та хостінг, HTML-CSS та JavaScript. Курс
+          проводиться за підтримки фонду BrainBasket (https://brainbasket.org/).
+          Навчальна програма базуються на курсах провідних навчальних закладів
+          світу та визнаних відкритих освітніх ресурсів, зокрема University of
+          London, Microsoft, W3Schools, Mozilla MDN web docs та ін. Заняття в
+          рамках проекту проходитимуть у форматі змішаного навчання
+          (онлайн+офлайн), що передбачає самостійну роботу з лекційним
+          матеріалом, який доступний онлайн, і аудиторну роботу під керівництвом
+          менторів на базі Зимової школи.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+    <h2 id="registration" class="headline-two">Реєстрація</h2>
+
+    <section class="cards-section">
+      <div class="card">
+        <h3 class="card-name">Олімпійський резерв</h3>
+        <a href="olimp.html">
+          <img class="card-img" src="img/Notebook-cuate.png" alt="icon" />
+        </a>
+        <br />
+        <a
+          class="card-button"
+          href="https://docs.google.com/forms/d/1CzIpWZ0VU1fe0NeXwfENdebMx7hxofWXA37uxGacKP0/viewform?edit_requested=true"
+          >Зареєструватись</a
+        >
+      </div>
+
+      <div class="card">
+        <h3 class="card-name">Кодуємо Android</h3>
+        <a href="android.html">
+          <img
+            class="card-img"
+            src="img/Mobile wireframe-cuate (1).png"
+            alt="icon"
+          />
+        </a>
+        <br />
+        <a
+          class="card-button"
+          href="https://docs.google.com/forms/d/1BwtFrV4XgtPBQGq07gUtNokoLv0okKX4EeEsXcki8xI/viewform?edit_requested=true"
+          >Зареєструватись</a
+        >
+      </div>
+
+      <div class="card">
+        <h3 class="card-name">Основи web-сайтів</h3>
+        <a href="web-design.html">
+          <img
+            class="card-img"
+            src="img/Website Creator-cuate (3).png"
+            alt="icon"
+          />
+        </a>
+        <br />
+        <a
+          class="card-button"
+          href="https://docs.google.com/forms/d/1CBVziX4eqh4sO7UkUqq2vNrHFQwnYlSXQW_aB9QVN4g/viewform?edit_requested=true"
+          >Зареєструватись</a
+        >
+      </div>
+    </section>
+
+    <h2 id="news" class="headline-two">Новини</h2>
+    <div class="news-container">
+      <div class="row">
+        <div class="column">
+          <div class="card2">
+            <img
+              class="news-photo"
+              src="img/gray.png"
+              alt="Jane"
+              style="width: 100%"
+            />
+            <div class="container2">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
+              <p><button class="button">Перейти</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card2">
+            <img
+              class="news-photo"
+              src="img/gray.png"
+              alt="Mike"
+              style="width: 100%"
+            />
+            <div class="container2">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
+              <p><button class="button">Перейти</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card2">
+            <img
+              class="news-photo"
+              src="img/gray.png"
+              alt="John"
+              style="width: 100%"
+            />
+            <div class="container2">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
+              <p><button class="button">Перейти</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-container">
+      <div class="row">
+        <div class="column">
+          <div class="card2">
+            <img
+              class="news-photo"
+              src="img/gray.png"
+              alt="Jane"
+              style="width: 100%"
+            />
+            <div class="container2">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
+              <p><button class="button">Перейти</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card2">
+            <img
+              class="news-photo"
+              src="img/gray.png"
+              alt="Mike"
+              style="width: 100%"
+            />
+            <div class="container2">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
+              <p><button class="button">Перейти</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card2">
+            <img
+              class="news-photo"
+              src="img/gray.png"
+              alt="John"
+              style="width: 100%"
+            />
+            <div class="container2">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
+              <p><button class="button">Перейти</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <h3 class="headline-three">Контакти:</h3>
+        <br />
+        <p class="contacts">
+          <span class="material-symbols-outlined">pin_drop</span>вул.
+          Кафедральна, 6, м. Луцьк, Україна, 43016
+        </p>
+        <br />
+        <p class="contacts">
+          <span class="material-symbols-outlined"> call </span>
+          <a href="+38 0332 721217">+38 0332 721217</a> - приймальна директора
+          ВоФК НУХТ
+        </p>
+        <br />
+        <p class="contacts">
+          <span class="material-symbols-outlined"> mail </span
+          ><a href="vocnuft@gmail.com">vocnuft@gmail.com</a>
+        </p>
+        <br />
+        <p class="contacts">
+          <span class="material-symbols-outlined"> question_mark </span> Виникли
+          питання? <a href="Задайте їх тут!">Задайте їх тут!</a>
+        </p>
+      </div>
+
+      <div class="container">
+        <h3 class="headline-three">Як нас знайти?</h3>
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.007385157438!2d25.31788127652732!3d50.738351899778145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4725999327a65347%3A0x66caa64ca60aafcc!2z0JLRltC00L7QutGA0LXQvNC70LXQvdC40Lkg0YHRgtGA0YPQutGC0YPRgNC90LjQuSDQv9GW0LTRgNC-0LfQtNGW0Ls!5e0!3m2!1suk!2sua!4v1699041895481!5m2!1suk!2sua"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </footer>
+
+    <script>
+      // Функція для створення сніжинок
+      function createSnowflakes() {
+        const numFlakes = 30; // Кількість сніжинок
+
+        for (let i = 0; i < numFlakes; i++) {
+          const snowflake = document.createElement("div");
+          snowflake.classList.add("snowflake");
+          snowflake.style.left = Math.random() * 100 + "vw";
+          snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+          snowflake.style.animationDelay = Math.random() * 2 + "s";
+          document.body.appendChild(snowflake);
+        }
+      }
+
+      createSnowflakes(); // Виклик функції
+    </script>
+  </body>
+</html>

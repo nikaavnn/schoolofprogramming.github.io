@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Основи web-дизайну</title>
+    <link rel="icon" href="img/VOFC_NUFT_sv_512.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;700&family=Quicksand:wght@700&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&family=Roboto+Slab:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="school.css" />
+  </head>
+  <body>
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="school.html">Головна</a>
+      <a href="android.html">Кодуємо Android</a>
+      <a href="olimp.html">Олімпійський резерв</a>
+      <a href="#registration">Реєстрація</a>
+      <a href="contacts.html">Контакти</a>
+    </div>
+
+    <button class="openbtn" onclick="openNav()">☰</button>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+      }
+    </script>
+    <script>
+      // Функція для здійснення плавного прокручування до відповідного елемента по ID
+      function scrollToElement(elementId) {
+        var element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+
+      // Додаємо обробник подій до кожного посилання у боковій панелі
+      var links = document.querySelectorAll(".sidepanel a");
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          var href = event.target.getAttribute("href");
+          if (href.startsWith("#")) {
+            var targetId = href.substring(1); // Видаляємо символ #
+            scrollToElement(targetId);
+            closeNav(); // Закрити бокову панель після кліку на посилання
+            event.preventDefault(); // Забороняємо стандартну поведінку посилання
+          }
+        });
+      });
+    </script>
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img
+          class="image"
+          src="img/pexels-photo-4974907.jpeg"
+          style="width: 100%"
+        />
+        <div class="text">
+          <span class="main-text">Основи web-дизайну</span><br />
+        </div>
+      </div>
+      <div class="mySlides fade">
+        <img
+          class="image"
+          src="img/pexels-photo-4974920.jpeg"
+          style="width: 100%"
+        />
+        <div class="text">
+          <span class="main-text">Олімпійський резерв</span><br />
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <img
+          class="image"
+          src="img/pexels-photo-4974915.jpg"
+          style="width: 100%"
+        />
+        <div class="text">
+          <span class="main-text">Кодуємо Android</span><br />
+        </div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br />
+
+    <div style="text-align: center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+
+    <h2 class="headline-two">Безкоштовні курси з web-дизайну</h2>
+
+    <p class="paragraph">
+      Записуйся на на курс, по завершенні якого ти навчишся створювати сучасні
+      сайти. Курс проводиться за підтримки фонду BrainBasket
+      (https://brainbasket.org/). Навчальна програма базуються на курсах
+      провідних навчальних закладів світу та визнаних відкритих освітніх
+      ресурсів, зокрема University of London, Microsoft, W3Schools, Mozilla MDN
+      web docs та ін. Програма маю на меті навчити слухача основам розробки
+      сучасних веб-сторінок із застосуванням найпоширеніших методик та
+      інструментів. Програма викладаються у форматі blended learning (змішане
+      навчаннѐ) та передбачає 16 аудиторних занять (15 навчальних + захист
+      фінальних проектів слухачів) тривалістя 2 астрономічні години кожне
+      протягом 8 тижнів. Передбачаються, що на кожне таке заняття слухачі
+      приходитимуть, самостійно опанувавши передбачені цією програмою обсяги
+      теоретичного матеріалу та (там де це передбачено) виконавши домашнє
+      завдання. В залежності від складності та логіки викладання, кожне
+      аудиторне заняття покриває від 1 до 7 тем (в залежності від їх
+      складності). За потреби деякі заняття викладач може ділити на окремі
+      частини, зважаючи на успішність та рівень засвоєння матеріалу групою.
+      Кожне із занять містить практичні рекомендації та приклади, теоретичний
+      матеріал для самостійного опрацювання слухачами та домашні завдання для
+      них. За підсумками проходження навчання в рамках проекту всі учасники
+      повинні пройти випускне тестування та захистити фінальний проект.
+    </p>
+
+    <h2 class="headline-two">Щоденник курсу</h2>
+    <p class="small-paragraph">
+      Ми будемо разом вести щоденник повідомляючи Вам про тему і зміст заняття,
+      домашні завдання з практики та теорії
+    </p>
+
+    <div class="accordion-container">
+      <button class="accordion">
+        Початок занять курсу Основи Web - розробки
+      </button>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+          repellat expedita repellendus! Commodi quam accusantium ex ut dolorem
+          soluta expedita nemo minus ducimus modi. Beatae voluptatum animi
+          obcaecati perspiciatis dolorum!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+    <h2 id="registration" class="headline-two">Реєстрація</h2>
+    <section class="cards-section">
+      <div class="card">
+        <h3 class="card-name">Олімпійський резерв</h3>
+        <a href="olimp.html">
+          <img class="card-img" src="img/Notebook-cuate.png" alt="icon" />
+        </a>
+        <br />
+        <a
+          class="card-button"
+          href="https://docs.google.com/forms/d/1CzIpWZ0VU1fe0NeXwfENdebMx7hxofWXA37uxGacKP0/viewform?edit_requested=true"
+          >Зареєструватись</a
+        >
+      </div>
+
+      <div class="card">
+        <h3 class="card-name">Кодуємо Android</h3>
+        <a href="android.html">
+          <img
+            class="card-img"
+            src="img/Mobile wireframe-cuate (1).png"
+            alt="icon"
+          />
+        </a>
+        <br />
+        <a
+          class="card-button"
+          href="https://docs.google.com/forms/d/1BwtFrV4XgtPBQGq07gUtNokoLv0okKX4EeEsXcki8xI/viewform?edit_requested=true"
+          >Зареєструватись</a
+        >
+      </div>
+
+      <div class="card">
+        <h3 class="card-name">Основи web-сайтів</h3>
+        <a href="web-design.html">
+          <img
+            class="card-img"
+            src="img/Website Creator-cuate (3).png"
+            alt="icon"
+          />
+        </a>
+        <br />
+        <a
+          class="card-button"
+          href="https://docs.google.com/forms/d/1CBVziX4eqh4sO7UkUqq2vNrHFQwnYlSXQW_aB9QVN4g/viewform?edit_requested=true"
+          >Зареєструватись</a
+        >
+      </div>
+    </section>
+
+    <div class="person">
+      <div class="person-container">
+        <img
+          class="avatar"
+          src="img/Без назви-1_Монтажна область 1.png"
+          alt=""
+        />
+        <h3 class="full-name">Шепелюк Галина Степанівна</h3>
+        <p>викладач</p>
+      </div>
+      <div class="person-container">
+        <img
+          class="avatar"
+          src="img/Без назви-1_Монтажна область 1.png"
+          alt=""
+        />
+        <h3 class="full-name">Маляр Вероніка</h3>
+        <p>студентка 2-го курсу</p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div>
+        <h3 class="headline-three">Контакти:</h3>
+        <br />
+        <p class="contacts">
+          <span class="material-symbols-outlined">pin_drop</span>вул.
+          Кафедральна, 6, м. Луцьк, Україна, 43016
+        </p>
+        <br />
+        <p class="contacts">
+          <span class="material-symbols-outlined"> call </span>
+          <a href="+38 0332 721217">+38 0332 721217</a> - приймальна директора
+          ВоФК НУХТ
+        </p>
+        <br />
+        <p class="contacts">
+          <span class="material-symbols-outlined"> mail </span
+          ><a href="vocnuft@gmail.com">vocnuft@gmail.com</a>
+        </p>
+        <br />
+        <p class="contacts">
+          <span class="material-symbols-outlined"> question_mark </span> Виникли
+          питання? <a href="Задайте їх тут!">Задайте їх тут!</a>
+        </p>
+      </div>
+
+      <div class="container">
+        <h3 class="headline-three">Як нас знайти?</h3>
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.007385157438!2d25.31788127652732!3d50.738351899778145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4725999327a65347%3A0x66caa64ca60aafcc!2z0JLRltC00L7QutGA0LXQvNC70LXQvdC40Lkg0YHRgtGA0YPQutGC0YPRgNC90LjQuSDQv9GW0LTRgNC-0LfQtNGW0Ls!5e0!3m2!1suk!2sua!4v1699041895481!5m2!1suk!2sua"
+          width="400"
+          height="400"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </footer>
+    <script>
+      // Функція для створення сніжинок
+      function createSnowflakes() {
+        const numFlakes = 30; // Кількість сніжинок
+
+        for (let i = 0; i < numFlakes; i++) {
+          const snowflake = document.createElement("div");
+          snowflake.classList.add("snowflake");
+          snowflake.style.left = Math.random() * 100 + "vw";
+          snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+          snowflake.style.animationDelay = Math.random() * 2 + "s";
+          document.body.appendChild(snowflake);
+        }
+      }
+
+      createSnowflakes(); // Виклик функції
+    </script>
+  </body>
+</html>
